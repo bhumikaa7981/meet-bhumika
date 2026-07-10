@@ -309,6 +309,26 @@
 
   .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
   .reveal.show{opacity:1; transform:translateY(0);}
+
+  /* ---------- MOBILE FIXES ---------- */
+  @media(max-width:820px){
+    section{padding:70px 0;}
+    .hero{
+      padding:140px 0 60px;
+      grid-template-columns:1fr;
+      gap:32px;
+      text-align:center;
+      justify-items:center;
+    }
+    .photo-box{width:180px; height:180px;}
+    .hero-text p.tagline{margin-left:auto; margin-right:auto;}
+    .stat-row, .cta-row{justify-content:center;}
+  }
+  @media(max-width:480px){
+    .wrap{padding:0 18px;}
+    .photo-box{width:150px; height:150px;}
+    .hero{padding:130px 0 48px;}
+  }
 </style>
 </head>
 <body>
@@ -653,11 +673,11 @@
         <div class="flip-inner">
           <div class="flip-face flip-front">
             <span class="icon">🎭</span>
-            <h4>3× South Zone Theatre Champions</h4>
+            <h4>Wrote & directed multiple drama skits</h4>
             <span class="tap">tap to flip</span>
           </div>
           <div class="flip-face flip-back" style="background:var(--coral); color:#fff;">
-            Wrote and directed award-winning skits, mimes and one-act plays as Theatre Lead at the SCET Youth Festival.
+            Wrote and directed multiple drama skits for the SCET Youth Festival, as well as for the college cultural event, Verve.
           </div>
         </div>
       </div>
@@ -718,11 +738,11 @@
         <div class="flip-inner">
           <div class="flip-face flip-front">
             <span class="icon">🤝</span>
-            <h4>MOUs with Google & Hack2Skill</h4>
+            <h4>2,000+ hackathon teams & MOUs with Google, Hack2Skill</h4>
             <span class="tap">tap to flip</span>
           </div>
           <div class="flip-face flip-back" style="background:var(--mint);">
-            Founded the University AI Club at INDUS and turned it into formal institutional partnerships.
+            Founded the University AI Club at INDUS, landing MOUs with Google and Hack2Skill, and drove marketing outreach that pulled in 2,000+ teams for the Odoo × INDUS University Hackathon 2026.
           </div>
         </div>
       </div>
@@ -743,12 +763,12 @@
       <div class="flip-outer" onclick="this.classList.toggle('flipped')">
         <div class="flip-inner">
           <div class="flip-face flip-front">
-            <span class="icon">👩‍💻</span>
-            <h4>2,000+ hackathon teams</h4>
+            <span class="icon">✍️</span>
+            <h4>Quora Top Writer 2018</h4>
             <span class="tap">tap to flip</span>
           </div>
           <div class="flip-face flip-back" style="background:var(--sky);">
-            Core marketing outreach for the Odoo × INDUS University Hackathon 2026 — national reach, real registrations.
+            Recognised as a Quora Top Writer in 2018, for answers on education, teaching, and technology.
           </div>
         </div>
       </div>
@@ -822,13 +842,10 @@
     <p style="max-width:520px; margin-top:14px;">Notes on my blog, longer thoughts on Medium, and the usual professional trail on LinkedIn. Drop a line any time.</p>
 
     <div class="connect-row">
-      <!-- 🔗 add your blog link below -->
-      <a class="connect-pill" style="background:var(--coral); color:#fff;" href="#" target="_blank" rel="noopener">✏️ Blog</a>
-      <!-- 🔗 add your Medium link below -->
-      <a class="connect-pill" style="background:var(--mint); color:var(--ink);" href="#" target="_blank" rel="noopener">📝 Medium</a>
-      <!-- 🔗 add your LinkedIn link below -->
-      <a class="connect-pill" style="background:var(--sky); color:var(--ink);" href="#" target="_blank" rel="noopener">💼 LinkedIn</a>
-      <a class="connect-pill" style="background:var(--sun); color:var(--ink);" href="mailto:bhumikashah7@gmail.com">✉️ Email</a>
+      <a class="connect-pill" style="background:var(--coral); color:#fff;" href="https://thebhumika.wordpress.com/" target="_blank" rel="noopener">✏️ Blog</a>
+      <a class="connect-pill" style="background:var(--mint); color:var(--ink);" href="https://medium.com/@thealmostokay" target="_blank" rel="noopener">📝 Medium</a>
+      <a class="connect-pill" style="background:var(--sky); color:var(--ink);" href="https://www.linkedin.com/in/bhumikaanddreams/" target="_blank" rel="noopener">💼 LinkedIn</a>
+      <a class="connect-pill" style="background:var(--sun); color:var(--ink);" href="mailto:bhumika.shah@scet.ac.in">✉️ Email</a>
     </div>
 
     <div class="foot-bottom" style="margin-top:50px;">Bhumika Keyur Shah · Surat, Gujarat · Built with equal parts chalk dust and curiosity.</div>
