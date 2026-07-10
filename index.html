@@ -211,10 +211,19 @@
   /* ---------- COURSES ---------- */
   .grid-3{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:24px;}
   .course-card{
-    background:var(--paper); border-radius:22px; padding:28px;
-    box-shadow:var(--shadow); position:relative; overflow:hidden;
-    transition:transform .25s ease;
-  }
+    display:flex;
+    flex-direction:column;
+    height:100%;
+}
+  .grid-3{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:24px;
+    align-items:stretch;
+}
+  .course-card .open{
+    margin-top:auto;
+}
   .course-card:hover{transform:translateY(-6px) rotate(-0.5deg);}
   .course-card .tag{
     display:inline-block; font-family:'Space Mono'; font-size:0.7rem;
