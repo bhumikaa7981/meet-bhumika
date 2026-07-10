@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhumika Shah — Teacher. Builder. Storyteller.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF7FF;
+    --paper:#FFFFFF;
+    --ink:#2E1A47;
+    --ink-soft:#5B4A75;
+    --coral:#FF6F91;
+    --coral-deep:#E8496F;
+    --mint:#8FEDC7;
+    --mint-deep:#3FCB98;
+    --sun:#FFD666;
+    --sun-deep:#F2B705;
+    --sky:#9FD8FF;
+    --sky-deep:#4FB4EE;
+    --lilac:#E7DBFF;
+    --shadow: 0 10px 30px rgba(46,26,71,0.10);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Plus Jakarta Sans', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fredoka', sans-serif;
+    margin:0;
+    line-height:1.1;
+  }
+  .mono{font-family:'Space Mono', monospace;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 28px;}
+  section{padding:110px 0;}
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:0.8rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--coral-deep);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:14px;
+  }
+  .eyebrow::before{content:"●"; color:var(--sun-deep); font-size:0.6rem;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed; top:16px; left:50%; transform:translateX(-50%);
+    z-index:100;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(46,26,71,0.08);
+    border-radius:999px;
+    padding:8px 10px;
+    box-shadow:var(--shadow);
+    display:flex; align-items:center; gap:2px;
+    max-width:92vw;
+    overflow-x:auto;
+  }
+  nav .brand{
+    font-family:'Fredoka'; font-weight:700; font-size:1.05rem;
+    padding:6px 14px 6px 10px; color:var(--coral-deep); white-space:nowrap;
+  }
+  nav a{
+    font-size:0.82rem; font-weight:600; padding:8px 14px; border-radius:999px;
+    white-space:nowrap; color:var(--ink-soft); transition:all .25s ease;
+  }
+  nav a:hover{background:var(--lilac); color:var(--ink);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:170px 0 90px;
+    display:grid; grid-template-columns:280px 1fr; gap:60px; align-items:center;
+  }
+  .photo-box{
+    width:260px; height:260px; border-radius:50%;
+    background:linear-gradient(135deg, var(--mint), var(--sky));
+    border:6px solid var(--paper);
+    box-shadow:var(--shadow);
+    display:flex; align-items:center; justify-content:center;
+    position:relative; cursor:pointer;
+    transition:transform .3s ease;
+    overflow:hidden;
+  }
+  .photo-box:hover{transform:rotate(-3deg) scale(1.02);}
+  .photo-box img{width:100%; height:100%; object-fit:cover; display:none;}
+  .photo-box .placeholder{
+    text-align:center; color:var(--ink); font-family:'Space Mono';
+    font-size:0.78rem; padding:20px;
+  }
+  .photo-box .placeholder .icon{font-size:2.4rem; display:block; margin-bottom:8px;}
+  .photo-box input{display:none;}
+  .photo-hint{
+    text-align:center; font-family:'Space Mono'; font-size:0.72rem;
+    color:var(--ink-soft); margin-top:14px;
+  }
+  .hero-text h1{
+    font-size:clamp(2.2rem, 5vw, 3.6rem);
+    font-weight:600;
+    color:var(--ink);
+  }
+  .hero-text h1 .hl{
+    background:linear-gradient(180deg, transparent 62%, var(--sun) 62%);
+    padding:0 2px;
+  }
+  .hero-text p.tagline{
+    font-size:1.15rem; color:var(--ink-soft); margin-top:18px; max-width:560px;
+  }
+  .stat-row{display:flex; gap:14px; margin-top:28px; flex-wrap:wrap;}
+  .stat-pill{
+    background:var(--paper); border-radius:16px; padding:10px 16px;
+    box-shadow:var(--shadow); font-family:'Space Mono'; font-size:0.78rem;
+    display:flex; flex-direction:column; gap:2px; min-width:110px;
+  }
+  .stat-pill b{font-family:'Fredoka'; font-size:1.3rem; color:var(--coral-deep);}
+  .cta-row{display:flex; gap:12px; margin-top:30px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 22px; border-radius:999px; font-weight:700; font-size:0.9rem;
+    transition:transform .2s ease, box-shadow .2s ease; cursor:pointer; border:none;
+  }
+  .btn-solid{background:var(--ink); color:var(--cream); box-shadow:var(--shadow);}
+  .btn-solid:hover{transform:translateY(-3px);}
+  .btn-outline{border:2px solid var(--ink); color:var(--ink);}
+  .btn-outline:hover{background:var(--ink); color:var(--cream);}
+
+  .about-more{
+    max-height:0; overflow:hidden; transition:max-height .5s ease;
+    margin-top:0;
+  }
+  .about-more.open{max-height:1400px; margin-top:26px;}
+  .about-more p{
+    color:var(--ink-soft); font-size:0.96rem; max-width:600px;
+    margin:0 0 16px 0; padding:16px 20px; background:var(--paper);
+    border-radius:16px; box-shadow:var(--shadow);
+  }
+  .about-more p strong{color:var(--ink);}
+  #readMoreBtn{border-color:var(--coral-deep); color:var(--coral-deep);}
+  #readMoreBtn:hover{background:var(--coral-deep); color:#fff;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  .sec-head{max-width:640px; margin-bottom:56px;}
+  .sec-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem); font-weight:600;}
+  .sec-head p{color:var(--ink-soft); margin-top:12px; font-size:1.02rem;}
+
+  /* ---------- JOURNEY / ROAD ---------- */
+  .journey{position:relative;}
+  .road-line{
+    position:absolute; left:50%; top:0; bottom:0; width:6px;
+    transform:translateX(-50%);
+    background-image:repeating-linear-gradient(var(--ink) 0 24px, transparent 24px 44px);
+    border-radius:6px; opacity:0.15;
+  }
+  .stop{
+    position:relative; display:grid; grid-template-columns:1fr 70px 1fr;
+    align-items:center; gap:0; margin-bottom:10px;
+  }
+  .stop .card{
+    background:var(--paper); border-radius:20px; padding:24px 26px;
+    box-shadow:var(--shadow); cursor:pointer; transition:transform .25s ease;
+    opacity:0; transform:translateY(24px); transition:opacity .6s ease, transform .6s ease;
+  }
+  .stop.show .card{opacity:1; transform:translateY(0);}
+  .stop:nth-child(odd) .card{grid-column:1; text-align:right;}
+  .stop:nth-child(even) .card{grid-column:3; text-align:left;}
+  .stop .card:hover{transform:translateY(-4px);}
+  .stop .marker{
+    grid-column:2; width:54px; height:54px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:1.4rem;
+    box-shadow:var(--shadow); z-index:2; margin:0 auto;
+    border:4px solid var(--cream);
+  }
+  .stop .era{font-family:'Space Mono'; font-size:0.74rem; color:var(--coral-deep); display:block; margin-bottom:6px;}
+  .stop .role{font-family:'Fredoka'; font-weight:600; font-size:1.15rem;}
+  .stop .place{color:var(--ink-soft); font-size:0.9rem; margin-top:2px;}
+  .stop .details{
+    max-height:0; overflow:hidden; transition:max-height .4s ease;
+    font-size:0.88rem; color:var(--ink-soft); text-align:left;
+  }
+  .stop.open .details{max-height:400px; margin-top:14px;}
+  .stop .details ul{margin:0; padding-left:18px;}
+  .stop .details li{margin-bottom:6px;}
+  .stop .tap-hint{font-family:'Space Mono'; font-size:0.68rem; color:var(--sky-deep); margin-top:10px; display:block;}
+
+  .more-stops{
+    max-height:0; overflow:hidden; transition:max-height .6s ease;
+  }
+  .more-stops.open{max-height:4000px;}
+  .current-stop .marker{box-shadow:0 0 0 6px rgba(255,214,102,0.35), var(--shadow);}
+
+  @media(max-width:760px){
+    .stop{grid-template-columns:56px 1fr;}
+    .stop .marker{grid-column:1; margin:0;}
+    .stop:nth-child(odd) .card, .stop:nth-child(even) .card{grid-column:2; text-align:left;}
+    .road-line{left:28px;}
+  }
+
+  /* ---------- COURSES ---------- */
+  .grid-3{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:24px;}
+  .course-card{
+    background:var(--paper); border-radius:22px; padding:28px;
+    box-shadow:var(--shadow); position:relative; overflow:hidden;
+    transition:transform .25s ease;
+  }
+  .course-card:hover{transform:translateY(-6px) rotate(-0.5deg);}
+  .course-card .tag{
+    display:inline-block; font-family:'Space Mono'; font-size:0.7rem;
+    background:var(--mint); color:var(--ink); padding:5px 10px; border-radius:8px;
+    margin-bottom:14px;
+  }
+  .course-card h3{font-size:1.25rem; margin-bottom:8px;}
+  .course-card p{color:var(--ink-soft); font-size:0.9rem; margin-bottom:20px;}
+  .course-card a.open{
+    font-family:'Space Mono'; font-weight:700; font-size:0.82rem; color:var(--coral-deep);
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .course-card a.open:hover{text-decoration:underline;}
+  .course-card .blob{
+    position:absolute; width:120px; height:120px; border-radius:50%;
+    top:-50px; right:-50px; opacity:0.5; z-index:0;
+  }
+  .course-card > *{position:relative; z-index:1;}
+
+  /* ---------- RESEARCH ---------- */
+  .paper-list{display:flex; flex-direction:column; gap:14px;}
+  .paper{
+    background:var(--paper); border-radius:18px; padding:20px 24px;
+    box-shadow:var(--shadow); display:flex; justify-content:space-between;
+    align-items:center; gap:20px; flex-wrap:wrap;
+    transition:transform .2s ease;
+  }
+  .paper:hover{transform:translateX(6px);}
+  .paper .p-title{font-weight:700; font-size:0.98rem;}
+  .paper .p-meta{color:var(--ink-soft); font-size:0.8rem; margin-top:4px; font-family:'Space Mono';}
+  .cite-badge{
+    background:var(--sun); border-radius:14px; padding:8px 14px; text-align:center;
+    font-family:'Fredoka'; font-weight:600; min-width:74px;
+  }
+  .cite-badge span{display:block; font-family:'Space Mono'; font-size:0.62rem; font-weight:400;}
+
+  /* ---------- ACHIEVEMENTS (flip cards) ---------- */
+  .flip-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:22px;}
+  .flip-outer{perspective:1200px; height:190px; cursor:pointer;}
+  .flip-inner{
+    position:relative; width:100%; height:100%; transition:transform .6s;
+    transform-style:preserve-3d;
+  }
+  .flip-outer.flipped .flip-inner{transform:rotateY(180deg);}
+  .flip-face{
+    position:absolute; inset:0; border-radius:20px; padding:22px;
+    backface-visibility:hidden; box-shadow:var(--shadow);
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  .flip-front{background:var(--paper);}
+  .flip-front .icon{font-size:2rem; margin-bottom:10px;}
+  .flip-front h4{font-size:1.02rem;}
+  .flip-front .tap{font-family:'Space Mono'; font-size:0.65rem; color:var(--ink-soft); margin-top:auto;}
+  .flip-back{
+    transform:rotateY(180deg); color:var(--ink); font-size:0.85rem;
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skill-group{margin-bottom:30px;}
+  .skill-group h4{font-family:'Space Mono'; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft); margin-bottom:14px;}
+  .tags{display:flex; flex-wrap:wrap; gap:10px;}
+  .tag-pill{
+    padding:8px 16px; border-radius:999px; font-size:0.85rem; font-weight:600;
+    box-shadow:var(--shadow); transition:transform .2s ease;
+  }
+  .tag-pill:hover{transform:translateY(-3px) scale(1.05);}
+
+  /* ---------- CONNECT / FOOTER ---------- */
+  footer{
+    background:var(--ink); color:var(--cream); padding:80px 0 40px; border-radius:40px 40px 0 0; margin-top:60px;
+  }
+  footer h2{color:var(--cream); font-size:clamp(1.8rem,3.4vw,2.6rem);}
+  footer p{color:#C9BAE0;}
+  .connect-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:30px;}
+  .connect-pill{
+    padding:14px 24px; border-radius:999px; font-weight:700; font-size:0.9rem;
+    display:inline-flex; align-items:center; gap:10px;
+    transition:transform .2s ease;
+  }
+  .connect-pill:hover{transform:translateY(-3px);}
+  .refs{margin-top:60px; padding-top:30px; border-top:1px solid rgba(255,255,255,0.15); font-size:0.82rem; color:#B8A6D6;}
+  .foot-bottom{margin-top:40px; font-family:'Space Mono'; font-size:0.72rem; color:#8A76AA;}
+
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.show{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="brand">BKS·</span>
+  <a href="#about">About</a>
+  <a href="#journey">Journey</a>
+  <a href="#courses">Courses</a>
+  <a href="#research">Research</a>
+  <a href="#achievements">Achievements</a>
+  <a href="#skills">Skills</a>
+  <a href="#connect">Connect</a>
+</nav>
+
+<!-- ============ HERO / ABOUT ============ -->
+<header class="hero wrap" id="about">
+  <div>
+    <label class="photo-box" id="photoBox">
+      <span class="placeholder" id="photoPlaceholder">
+        <span class="icon">📸</span>
+        Click to add<br>your photo
+      </span>
+      <img id="photoImg" alt="Bhumika Shah">
+      <input type="file" accept="image/*" id="photoInput">
+    </label>
+    <div class="photo-hint">saved right here in your browser ✦ click again to change it</div>
+  </div>
+  <div class="hero-text">
+    <span class="eyebrow">Surat, Gujarat</span>
+    <h1>21 years building systems.<br>Now I'm chasing the ones <span class="hl">nobody's mapped</span> yet.</h1>
+    <p class="tagline">Curricula, classrooms, research pipelines, cultural institutions — and questions with no neat answers. Like: what does a nightmare mean, linguistically? Can a machine learn to read the emotional grammar of sleep?</p>
+    <div class="stat-row">
+      <div class="stat-pill"><b>21</b>years building</div>
+      <div class="stat-pill"><b>11+</b>papers published</div>
+      <div class="stat-pill"><b>200+</b>citations</div>
+      <div class="stat-pill"><b>25+</b>students placed abroad</div>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="#journey">See my journey ↓</a>
+      <a class="btn btn-outline" href="#connect">Say hello</a>
+      <button class="btn btn-outline" id="readMoreBtn" onclick="toggleAbout()" style="background:none;">Read the long story →</button>
+    </div>
+
+    <div id="aboutMore" class="about-more">
+      <p>My research roots are in AI, NLP, and image processing — papers spanning facial feature extraction, opinion mining, and brain connectivity visualisation. What the publications don't show: 13 years mentoring 6+ PG and 12+ UG research projects, and learning that the hardest part of AI research isn't the math. It's knowing which question is worth asking.</p>
+      <p>I've rejoined <strong>Sarvajanik College of Engineering & Technology (SCET), Surat</strong>, as Assistant Professor in the Department of Artificial Intelligence & Data Science (Information Technology). Coming back to academia feels like coming home.</p>
+      <p>Alongside teaching, I remain associated with <strong>Padhega India — Bodhi Tree Knowledge Services</strong>. Our philosophy is simple: no piracy, quality books only.</p>
+      <p>My long-term research direction: AI-powered analysis of dreams and nightmares — somewhere between NLP, affective computing, sleep neuroscience, and human behaviour. There's a lot of unmapped territory between algorithmic thinking and human cognition. I'd like to help map it.</p>
+      <p><strong>Open to:</strong> research collaborations, AI & NLP labs, mentoring, sleep and mental-health AI, hackathon communities — and conversations that bridge tech, education, and cognition. Love books? We're already connected in a parallel universe. Say hi.</p>
+    </div>
+  </div>
+</header>
+
+<!-- ============ JOURNEY ============ -->
+<section id="journey">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The long way round</span>
+      <h2>My career, mapped like a road trip</h2>
+      <p>Because it was one — full of detours, U-turns, and a few unplanned scenic routes. Tap any stop for the full story.</p>
+    </div>
+  </div>
+
+  <div class="wrap journey">
+    <div class="road-line"></div>
+
+    <div class="stop current-stop">
+      <div class="marker" style="background:var(--sun)">🌙</div>
+      <div class="card" onclick="toggleStop(this)">
+        <span class="era">2026 – Present · Current</span>
+        <div class="role">Assistant Professor</div>
+        <div class="place">Dept. of Artificial Intelligence & Data Science (IT), SCET, Surat</div>
+        <div class="details">
+          <ul>
+            <li>Rejoined SCET — this time in the AI & Data Science (IT) department. Coming back to academia feels like coming home.</li>
+            <li>Building toward a new research line: AI-powered analysis of dreams and nightmares — NLP, affective computing, and sleep neuroscience colliding.</li>
+            <li>Still associated with Padhega India — ethical publishing, no piracy, quality books only.</li>
+            <li>Open to research collaborations, AI/NLP labs, and anyone who thinks algorithmic reasoning and human cognition should talk to each other more.</li>
+          </ul>
+        </div>
+        <span class="tap-hint">tap to expand ▾</span>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin:36px 0;">
+      <button class="btn btn-outline" id="exploreBtn" onclick="toggleMoreStops()">Explore the full journey ↓</button>
+    </div>
+
+    <div id="moreStops" class="more-stops">
+
+      <div class="stop">
+        <div class="marker" style="background:var(--sky)">🚀</div>
+        <div class="card" onclick="toggleStop(this)">
+          <span class="era">Jan 2026</span>
+          <div class="role">Assistant Professor</div>
+          <div class="place">INDUS University, Ahmedabad</div>
+          <div class="details">
+            <ul>
+              <li>Helped the marketing outreach team pull in 2,000+ teams for the Odoo × INDUS Hackathon 2026.</li>
+              <li>Founded the University AI Club, landing MOUs with Hack2Skill and Google.</li>
+              <li>Mentored first-years — the same conversations I needed at 21, now from the other side.</li>
+            </ul>
+          </div>
+          <span class="tap-hint">tap to expand ▾</span>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="marker" style="background:var(--coral)">💼</div>
+        <div class="card" onclick="toggleStop(this)">
+          <span class="era">Oct 2023 – Jan 2026</span>
+          <div class="role">SVP – Operations & Strategy</div>
+          <div class="place">Padhega India (Bodhi Tree Knowledge Services), New Delhi</div>
+          <div class="details">
+            <ul>
+              <li>Ran sales, marketing, accounts, HR, and author relations for a 1-lakh-product online bookstore.</li>
+              <li>Built and led a 15-person cross-functional team from scratch.</li>
+              <li>Owned the WordPress site end-to-end — SEO, content, conversions.</li>
+              <li>Turned data mining into decisions, using nothing fancier than Google Sheets and stubbornness.</li>
+            </ul>
+          </div>
+          <span class="tap-hint">tap to expand ▾</span>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="marker" style="background:var(--sun)">✒️</div>
+        <div class="card" onclick="toggleStop(this)">
+          <span class="era">Feb 2022 – Oct 2022</span>
+          <div class="role">Assistant Professor</div>
+          <div class="place">P. P. Savani University, Ankleshwar</div>
+          <div class="details">
+            <ul>
+              <li>Taught C, NLP, and core CS papers.</li>
+              <li>Designed the PPSU Fast Track Degree Format from scratch.</li>
+              <li>Co-coordinated the university magazine and anchored campus-wide events.</li>
+            </ul>
+          </div>
+          <span class="tap-hint">tap to expand ▾</span>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="marker" style="background:var(--mint)">🏛️</div>
+        <div class="card" onclick="toggleStop(this)">
+          <span class="era">2009 – 2022 · 12 years</span>
+          <div class="role">Assistant Professor</div>
+          <div class="place">Sarvajanik College of Engineering & Technology (SCET), Surat</div>
+          <div class="details">
+            <ul>
+              <li>Taught AI, NLP, Image Processing & Compiler Design across UG and ME.</li>
+              <li>Guided 6 ME dissertations and 12+ UG project teams; 8 papers came out of this era.</li>
+              <li>Ran the timetable committee for 13 years and sat on the NBA academic committee.</li>
+              <li>Training & Placement Officer for 3 years; Foreign Students Coordinator for students from Bangladesh, Afghanistan & Africa.</li>
+              <li>Founded the CO Ideation Club and CO CREO Cultural Festival — wrote and directed the plays myself.</li>
+              <li>Theatre lead behind 3× South Zone Championship wins at the SCET Youth Festival.</li>
+            </ul>
+          </div>
+          <span class="tap-hint">tap to expand ▾</span>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="marker" style="background:var(--coral)">🧭</div>
+        <div class="card" onclick="toggleStop(this)">
+          <span class="era">2007 – 2008</span>
+          <div class="role">Head of Department — Computer Engineering</div>
+          <div class="place">Valia Institute of Technology, Gujarat</div>
+          <div class="details">
+            <ul>
+              <li>Ran department operations solo — timetables, faculty, results, everything.</li>
+              <li>Doubled as Training & Placement Officer, driving campus recruitment.</li>
+            </ul>
+          </div>
+          <span class="tap-hint">tap to expand ▾</span>
+        </div>
+      </div>
+
+      <div class="stop">
+        <div class="marker" style="background:var(--sky)">🎓</div>
+        <div class="card" onclick="toggleStop(this)">
+          <span class="era">2004 – 2007</span>
+          <div class="role">Lecturer</div>
+          <div class="place">A. D. Patel Institute of Technology, New Vidyanagar</div>
+          <div class="details">
+            <ul>
+              <li>Taught core CS subjects to undergrads fresh out of school — same as me, back then.</li>
+              <li>Active in Training & Placement, Women Empowerment Cell, and event management.</li>
+              <li>Departmental Anchor (MOC) — first taste of a mic and a stage.</li>
+            </ul>
+          </div>
+          <span class="tap-hint">tap to expand ▾</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ COURSES ============ -->
+<section id="courses">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Open notebook</span>
+      <h2>Course notes, out in the open</h2>
+      <p>Material I've built for my classes — free to browse, borrow, and get stuck into. More subjects landing soon.</p>
+    </div>
+
+    <div class="grid-3 reveal">
+      <div class="course-card">
+        <div class="blob" style="background:var(--mint)"></div>
+        <span class="tag">BTIT15501</span>
+        <h3>Data Science Using Python</h3>
+        <p>Pandas, NumPy, and the occasional broken kernel — a working notebook for the course.</p>
+        <a class="open" href="https://bhumikaa7981.github.io/BTIT15501-Data-Science-Using-Python/#" target="_blank" rel="noopener">Open notes →</a>
+      </div>
+
+      <div class="course-card">
+        <div class="blob" style="background:var(--sky)"></div>
+        <span class="tag">NLP</span>
+        <h3>Natural Language Processing</h3>
+        <p>From tokenising to transformers — the slides, notes, and reading list I actually use in class.</p>
+        <!-- 🔗 add your NLP material link below -->
+        <a class="open" href="#" target="_blank" rel="noopener">Add your link →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESEARCH ============ -->
+<section id="research" style="background:var(--lilac); border-radius:40px; margin:0 20px; width:auto;">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">On paper</span>
+      <h2>Research, mostly on AI, NLP & imaging</h2>
+      <p>200+ citations across 11+ papers — from face detection to skin cancer diagnosis to opinion mining.</p>
+    </div>
+
+    <div class="paper-list reveal">
+      <div class="paper">
+        <div>
+          <div class="p-title">Review on Techniques and Steps of Computer Aided Skin Cancer Diagnosis</div>
+          <div class="p-meta">ScienceDirect · 2016 · with S. Palak Mehta</div>
+        </div>
+        <div class="cite-badge">93<span>citations</span></div>
+      </div>
+      <div class="paper">
+        <div>
+          <div class="p-title">Feature Based Opinion Mining: A Survey</div>
+          <div class="p-meta">IEEE IACC · 2015 · with S.Y. Ganeshbhai</div>
+        </div>
+        <div class="cite-badge">43<span>citations</span></div>
+      </div>
+      <div class="paper">
+        <div>
+          <div class="p-title">A Review of Image Fusion Techniques</div>
+          <div class="p-meta">ICCMC · 2018 · with Karishma C. Bhataria</div>
+        </div>
+        <div class="cite-badge">33<span>citations</span></div>
+      </div>
+      <div class="paper">
+        <div>
+          <div class="p-title">A Survey on Facial Feature Extraction Techniques for Automatic Face Annotation</div>
+          <div class="p-meta">ICIMIA · 2017 · with Twisha Patel</div>
+        </div>
+        <div class="cite-badge">23<span>citations</span></div>
+      </div>
+      <div class="paper">
+        <div>
+          <div class="p-title">Comparative Study on Automatic Image Annotation</div>
+          <div class="p-meta">IJETAE, Vol. 4 · 2014 · with D. Pandya</div>
+        </div>
+        <div class="cite-badge">7<span>citations</span></div>
+      </div>
+      <div class="paper">
+        <div>
+          <div class="p-title">Review on Driver Distraction Classification to Avoid Accidents using Deep Learning</div>
+          <div class="p-meta">Int'l Journal of Research Publication & Reviews · 2022</div>
+        </div>
+        <div class="cite-badge">–</div>
+      </div>
+      <div class="paper">
+        <div>
+          <div class="p-title">A Novel Based Approach to Investigate Distinctive Region of Brain Connectivity using Neural Maps</div>
+          <div class="p-meta">IJCET, Vol. 5 · 2014 · with Jenish Lavji</div>
+        </div>
+        <div class="cite-badge">–</div>
+      </div>
+      <div class="paper">
+        <div>
+          <div class="p-title">Automatic Image Annotation Based on Dominant Color and GLCM using Fuzzy C-Means Clustering</div>
+          <div class="p-meta">ICAET · 2014 · with Dhatri Pandya</div>
+        </div>
+        <div class="cite-badge">–</div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:36px;">
+      <!-- 🔗 add your Google Scholar link below -->
+      <a class="btn btn-outline" href="#" target="_blank" rel="noopener">View full profile on Google Scholar →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACHIEVEMENTS ============ -->
+<section id="achievements">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Beyond the syllabus</span>
+      <h2>Achievements & activities</h2>
+      <p>The stuff that doesn't fit neatly on a transcript. Tap a card to flip it.</p>
+    </div>
+
+    <div class="flip-grid reveal">
+      <div class="flip-outer" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="icon">🎭</span>
+            <h4>3× South Zone Theatre Champions</h4>
+            <span class="tap">tap to flip</span>
+          </div>
+          <div class="flip-face flip-back" style="background:var(--coral); color:#fff;">
+            Wrote and directed award-winning skits, mimes and one-act plays as Theatre Lead at the SCET Youth Festival.
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-outer" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="icon">📚</span>
+            <h4>Founded CO Ideation Club</h4>
+            <span class="tap">tap to flip</span>
+          </div>
+          <div class="flip-face flip-back" style="background:var(--mint);">
+            A space for Coders, Readers & Writers to build a culture of holistic student development at SCET.
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-outer" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="icon">🎪</span>
+            <h4>CO CREO Cultural Festival</h4>
+            <span class="tap">tap to flip</span>
+          </div>
+          <div class="flip-face flip-back" style="background:var(--sun);">
+            Initiated and organised 3 editions — plus wrote and directed the original plays performed by students.
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-outer" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="icon">📰</span>
+            <h4>Editor & Designer</h4>
+            <span class="tap">tap to flip</span>
+          </div>
+          <div class="flip-face flip-back" style="background:var(--sky);">
+            Launched CO Smriti departmental magazine and shipped 6 editions of the SCET Student E-Magazine.
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-outer" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="icon">🌍</span>
+            <h4>25+ students, abroad</h4>
+            <span class="tap">tap to flip</span>
+          </div>
+          <div class="flip-face flip-back" style="background:var(--coral); color:#fff;">
+            Mentored 25+ students through international admissions (LORs) — every one landed at a reputed foreign university.
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-outer" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="icon">🤝</span>
+            <h4>MOUs with Google & Hack2Skill</h4>
+            <span class="tap">tap to flip</span>
+          </div>
+          <div class="flip-face flip-back" style="background:var(--mint);">
+            Founded the University AI Club at INDUS and turned it into formal institutional partnerships.
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-outer" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="icon">🎥</span>
+            <h4>13 videos on Unacademy</h4>
+            <span class="tap">tap to flip</span>
+          </div>
+          <div class="flip-face flip-back" style="background:var(--sun);">
+            Compiler Design lessons, uploaded on my own initiative — before "digital-first teaching" was a buzzword.
+          </div>
+        </div>
+      </div>
+
+      <div class="flip-outer" onclick="this.classList.toggle('flipped')">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <span class="icon">👩‍💻</span>
+            <h4>2,000+ hackathon teams</h4>
+            <span class="tap">tap to flip</span>
+          </div>
+          <div class="flip-face flip-back" style="background:var(--sky);">
+            Core marketing outreach for the Odoo × INDUS University Hackathon 2026 — national reach, real registrations.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Toolbelt</span>
+      <h2>What I bring to a classroom (or a war room)</h2>
+    </div>
+
+    <div class="reveal">
+      <div class="skill-group">
+        <h4>Academic</h4>
+        <div class="tags">
+          <span class="tag-pill" style="background:var(--coral); color:#fff;">Curriculum design</span>
+          <span class="tag-pill" style="background:var(--coral); color:#fff;">NEP 2020 alignment</span>
+          <span class="tag-pill" style="background:var(--coral); color:#fff;">NBA documentation</span>
+          <span class="tag-pill" style="background:var(--coral); color:#fff;">Outcome-based education</span>
+          <span class="tag-pill" style="background:var(--coral); color:#fff;">Research mentoring</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Technical</h4>
+        <div class="tags">
+          <span class="tag-pill" style="background:var(--mint);">AI</span>
+          <span class="tag-pill" style="background:var(--mint);">NLP</span>
+          <span class="tag-pill" style="background:var(--mint);">Image Processing</span>
+          <span class="tag-pill" style="background:var(--mint);">Compiler Design</span>
+          <span class="tag-pill" style="background:var(--mint);">C / C++</span>
+          <span class="tag-pill" style="background:var(--mint);">Python (basic)</span>
+          <span class="tag-pill" style="background:var(--mint);">MATLAB</span>
+          <span class="tag-pill" style="background:var(--mint);">Oracle</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Digital & content</h4>
+        <div class="tags">
+          <span class="tag-pill" style="background:var(--sun);">WordPress</span>
+          <span class="tag-pill" style="background:var(--sun);">SEO</span>
+          <span class="tag-pill" style="background:var(--sun);">E-commerce</span>
+          <span class="tag-pill" style="background:var(--sun);">Image / video content</span>
+          <span class="tag-pill" style="background:var(--sun);">Data mining (Sheets)</span>
+          <span class="tag-pill" style="background:var(--sun);">AI tools & platforms</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Leadership & voice</h4>
+        <div class="tags">
+          <span class="tag-pill" style="background:var(--sky);">Cross-functional teams</span>
+          <span class="tag-pill" style="background:var(--sky);">Institutional strategy</span>
+          <span class="tag-pill" style="background:var(--sky);">Published columnist</span>
+          <span class="tag-pill" style="background:var(--sky);">Blogger, 7+ years</span>
+          <span class="tag-pill" style="background:var(--sky);">Trilingual anchor</span>
+          <span class="tag-pill" style="background:var(--sky);">Public speaking</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONNECT / FOOTER ============ -->
+<footer id="connect">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--sun);">Let's talk</span>
+    <h2>Reading, writing, teaching — <br>usually all three, badly juggled.</h2>
+    <p style="max-width:520px; margin-top:14px;">Notes on my blog, longer thoughts on Medium, and the usual professional trail on LinkedIn. Drop a line any time.</p>
+
+    <div class="connect-row">
+      <!-- 🔗 add your blog link below -->
+      <a class="connect-pill" style="background:var(--coral); color:#fff;" href="#" target="_blank" rel="noopener">✏️ Blog</a>
+      <!-- 🔗 add your Medium link below -->
+      <a class="connect-pill" style="background:var(--mint); color:var(--ink);" href="#" target="_blank" rel="noopener">📝 Medium</a>
+      <!-- 🔗 add your LinkedIn link below -->
+      <a class="connect-pill" style="background:var(--sky); color:var(--ink);" href="#" target="_blank" rel="noopener">💼 LinkedIn</a>
+      <a class="connect-pill" style="background:var(--sun); color:var(--ink);" href="mailto:bhumikashah7@gmail.com">✉️ Email</a>
+    </div>
+
+    <div class="foot-bottom" style="margin-top:50px;">Bhumika Keyur Shah · Surat, Gujarat · Built with equal parts chalk dust and curiosity.</div>
+  </div>
+</footer>
+
+<script>
+  // photo upload with local persistence
+  const photoInput = document.getElementById('photoInput');
+  const photoImg = document.getElementById('photoImg');
+  const photoPlaceholder = document.getElementById('photoPlaceholder');
+
+  function showPhoto(dataUrl){
+    photoImg.src = dataUrl;
+    photoImg.style.display = 'block';
+    photoPlaceholder.style.display = 'none';
+  }
+  const saved = localStorage.getItem('bks_photo');
+  if(saved){ showPhoto(saved); }
+
+  photoInput.addEventListener('change', function(e){
+    const file = e.target.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev){
+      showPhoto(ev.target.result);
+      try{ localStorage.setItem('bks_photo', ev.target.result); }catch(err){}
+    };
+    reader.readAsDataURL(file);
+  });
+
+  // journey stop toggle
+  function toggleStop(card){
+    card.parentElement.classList.toggle('open');
+  }
+
+  // hero "read more" bio toggle
+  function toggleAbout(){
+    const panel = document.getElementById('aboutMore');
+    const btn = document.getElementById('readMoreBtn');
+    const isOpen = panel.classList.toggle('open');
+    btn.textContent = isOpen ? 'Show less ↑' : 'Read the long story →';
+  }
+
+  // journey "explore full history" toggle
+  function toggleMoreStops(){
+    const panel = document.getElementById('moreStops');
+    const btn = document.getElementById('exploreBtn');
+    const isOpen = panel.classList.toggle('open');
+    btn.textContent = isOpen ? 'Show less ↑' : 'Explore the full journey ↓';
+    if(isOpen){
+      panel.querySelectorAll('.stop').forEach(el=>io.observe(el));
+    }
+  }
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal, .stop');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('show');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
