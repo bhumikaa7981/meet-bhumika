@@ -21,6 +21,8 @@
     --sky:#9FD8FF;
     --sky-deep:#4FB4EE;
     --lilac:#E7DBFF;
+    --grape:#B983FF;
+    --grape-deep:#8B4FE0;
     --shadow: 0 10px 30px rgba(46,26,71,0.10);
   }
   *{box-sizing:border-box;}
@@ -209,11 +211,17 @@
   }
 
   /* ---------- COURSES ---------- */
-  .grid-3{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:24px;}
   .course-card{
     display:flex;
     flex-direction:column;
     height:100%;
+    background:var(--paper);
+    border-radius:22px;
+    padding:26px 24px;
+    box-shadow:var(--shadow);
+    position:relative;
+    overflow:hidden;
+    transition:transform .25s ease;
 }
   .grid-3{
     display:grid;
@@ -242,6 +250,117 @@
     top:-50px; right:-50px; opacity:0.5; z-index:0;
   }
   .course-card > *{position:relative; z-index:1;}
+
+  /* ---------- CODE · COMPETE · CONQUER (featured, floating, sliding) ---------- */
+  #codecompete{
+    position:relative;
+    margin:0 20px;
+    border-radius:44px;
+    padding:90px 0;
+    overflow:hidden;
+    background:linear-gradient(135deg, var(--grape) 0%, var(--coral) 55%, var(--sun) 100%);
+    isolation:isolate;
+  }
+  #codecompete::before,
+  #codecompete::after{
+    content:"";
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,0.16);
+    z-index:0;
+  }
+  #codecompete::before{
+    width:280px; height:280px; top:-90px; left:-80px;
+    animation:driftA 9s ease-in-out infinite;
+  }
+  #codecompete::after{
+    width:200px; height:200px; bottom:-70px; right:-40px;
+    animation:driftB 7.5s ease-in-out infinite;
+  }
+  @keyframes driftA{
+    0%,100%{ transform:translate(0,0) scale(1); }
+    50%{ transform:translate(24px,18px) scale(1.08); }
+  }
+  @keyframes driftB{
+    0%,100%{ transform:translate(0,0) scale(1); }
+    50%{ transform:translate(-18px,-14px) scale(1.1); }
+  }
+
+  .cc-badge{
+    position:relative; z-index:1;
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(255,255,255,0.92);
+    color:var(--grape-deep);
+    font-family:'Space Mono'; font-size:0.72rem; font-weight:700;
+    letter-spacing:0.1em; text-transform:uppercase;
+    padding:8px 16px; border-radius:999px;
+    box-shadow:var(--shadow);
+    animation:floatY 3.2s ease-in-out infinite;
+  }
+  @keyframes floatY{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-8px); }
+  }
+
+  .cc-card{
+    position:relative; z-index:1;
+    max-width:760px;
+    margin-top:26px;
+    background:rgba(255,255,255,0.97);
+    border-radius:30px;
+    padding:44px 40px;
+    box-shadow:0 24px 60px -20px rgba(46,26,71,0.35);
+    animation:floatCard 5s ease-in-out infinite;
+  }
+  @keyframes floatCard{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-10px); }
+  }
+
+  .cc-card h2{
+    font-size:clamp(1.9rem,3.6vw,2.7rem);
+    color:var(--ink);
+  }
+  .cc-card p{
+    color:var(--ink-soft);
+    font-size:1.03rem;
+    margin-top:16px;
+    max-width:640px;
+  }
+  .cc-stats{
+    display:flex; gap:14px; flex-wrap:wrap; margin-top:26px;
+  }
+  .cc-stats span{
+    font-family:'Space Mono'; font-size:0.76rem; font-weight:700;
+    background:var(--lilac); color:var(--ink);
+    padding:8px 14px; border-radius:999px;
+  }
+
+  .cc-cta{
+    position:relative;
+    display:inline-flex; align-items:center; gap:10px;
+    margin-top:30px;
+    padding:15px 28px;
+    border-radius:999px;
+    background:var(--ink);
+    color:var(--cream);
+    font-weight:700; font-size:0.95rem;
+    overflow:hidden;
+    transition:transform .25s ease;
+  }
+  .cc-cta:hover{transform:translateY(-3px);}
+  .cc-cta::before{
+    content:"";
+    position:absolute; top:0; left:-60%;
+    width:40%; height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,0.55), transparent);
+    transform:skewX(-20deg);
+    animation:ccShine 2.6s ease-in-out infinite;
+  }
+  @keyframes ccShine{
+    0%{ left:-60%; }
+    60%,100%{ left:130%; }
+  }
 
   /* ---------- RESEARCH ---------- */
   .paper-list{display:flex; flex-direction:column; gap:14px;}
@@ -323,6 +442,8 @@
     .photo-box{width:180px; height:180px;}
     .hero-text p.tagline{margin-left:auto; margin-right:auto;}
     .stat-row, .cta-row{justify-content:center;}
+    #codecompete{margin:0 10px; padding:60px 0;}
+    .cc-card{padding:30px 24px;}
   }
   @media(max-width:480px){
     .wrap{padding:0 18px;}
@@ -338,6 +459,7 @@
   <a href="#about">About</a>
   <a href="#journey">Journey</a>
   <a href="#courses">Courses</a>
+  <a href="#codecompete">Code·Compete</a>
   <a href="#research">Research</a>
   <a href="#achievements">Achievements</a>
   <a href="#skills">Skills</a>
@@ -551,37 +673,52 @@
         <span class="tag">NLP</span>
         <h3>Natural Language Processing</h3>
         <p>From tokenising to transformers — the slides, notes, and reading list I actually use in class.</p>
-        <!-- 🔗 add your NLP material link below -->
         <a class="open" href="https://bhumikaa7981.github.io/Natural-Language-Processing-BTIT14706/" target="_blank" rel="noopener">Open notes →</a>
       </div>
-    
-  <div class="course-card">
-    <div class="blob" style="background:var(--coral)"></div>
-    <span class="tag">CD</span>
-    <h3>Compiler Design</h3>
-    <p>Master lexical analysis, parsing, syntax-directed translation, code generation, optimization, and the complete journey from source code to executable programs.</p>
 
-    <a class="open"
-       href="https://youtube.com/playlist?list=PLlElmXUGYSD8ioEGwhAMDUg423WCVgrCw&si=20r1pHmFWhqPQWgk"
-       target="_blank"
-       rel="noopener">
-       Watch Playlist →
-    </a>
-</div>
+      <div class="course-card">
+        <div class="blob" style="background:var(--coral)"></div>
+        <span class="tag">CD</span>
+        <h3>Compiler Design</h3>
+        <p>Master lexical analysis, parsing, syntax-directed translation, code generation, optimization, and the complete journey from source code to executable programs.</p>
+        <a class="open" href="https://youtube.com/playlist?list=PLlElmXUGYSD8ioEGwhAMDUg423WCVgrCw&si=20r1pHmFWhqPQWgk" target="_blank" rel="noopener">Watch Playlist →</a>
+      </div>
 
-<div class="course-card">
-    <div class="blob" style="background:var(--grape)"></div>
-    <span class="tag">AI</span>
-    <h3>Artificial Intelligence</h3>
-    <p>Explore intelligent agents, search algorithms, knowledge representation, machine learning, expert systems, and modern AI concepts through complete video lectures.</p>
+      <div class="course-card">
+        <div class="blob" style="background:var(--grape)"></div>
+        <span class="tag">AI</span>
+        <h3>Artificial Intelligence</h3>
+        <p>Explore intelligent agents, search algorithms, knowledge representation, machine learning, expert systems, and modern AI concepts through complete video lectures.</p>
+        <a class="open" href="https://youtube.com/playlist?list=PLlElmXUGYSD-PBi9_wRPdYWpPnNXLq6Kv&si=E_OexjI_pqJ5-Oko" target="_blank" rel="noopener">Watch Playlist →</a>
+      </div>
 
-    <a class="open"
-       href="https://youtube.com/playlist?list=PLlElmXUGYSD-PBi9_wRPdYWpPnNXLq6Kv&si=E_OexjI_pqJ5-Oko"
-       target="_blank"
-       rel="noopener">
-       Watch Playlist →
-    </a>
-</div>
+      <div class="course-card">
+        <div class="blob" style="background:var(--lilac)"></div>
+        <span class="tag">MISC · EVERYTHING ELSE</span>
+        <h3>The Curiosity Shelf</h3>
+        <p>Everything else I explore — side reading, half-finished experiments, odd rabbit holes, and whatever's currently pulling at my attention outside the syllabus.</p>
+        <a class="open" href="https://bhumikaa7981.github.io/Resources/BShelf/" target="_blank" rel="noopener">Open the shelf →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CODE · COMPETE · CONQUER (featured highlight) ============ -->
+<section id="codecompete">
+  <div class="wrap">
+    <span class="cc-badge">✨ Featured Build</span>
+    <div class="cc-card">
+      <h2>Code. Compete. Conquer.</h2>
+      <p>A free, semester-by-semester roadmap built for my IT & AI-DS students — pulling together 9 platforms, from Google, Microsoft, AWS and IBM certifications to LeetCode, Codeforces, CodeChef and GitHub, into one four-year plan. It turns "I'll start DSA someday" into a real timetable, with zero cost and zero excuses, plus a track for turning campus involvement into genuine leadership.</p>
+      <div class="cc-stats">
+        <span>9 Platforms</span>
+        <span>₹0 Cost</span>
+        <span>4-Year Roadmap</span>
+        <span>Campus Leadership Tracks</span>
+      </div>
+      <a class="cc-cta" href="https://bhumikaa7981.github.io/letslearn/" target="_blank" rel="noopener">Explore the portal →</a>
+    </div>
+  </div>
 </section>
 
 <!-- ============ RESEARCH ============ -->
@@ -653,7 +790,6 @@
     </div>
 
     <div style="text-align:center; margin-top:36px;">
-      <!-- 🔗 add your Google Scholar link below -->
       <a class="btn btn-outline" href="https://scholar.google.com/citations?hl=en&authuser=1&user=fsv3frgAAAAJ" target="_blank" rel="noopener">View full profile on Google Scholar →</a>
     </div>
   </div>
