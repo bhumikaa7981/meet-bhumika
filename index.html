@@ -469,7 +469,13 @@
     color:var(--ink-soft);
     white-space:nowrap;
   }
-  table.sched td.empty{color:#C9BAE0; font-style:italic;}
+  table.sched td.dash{color:#C9BAE0; text-align:center;}
+  table.sched td.lab{
+    background:var(--mint);
+    color:var(--ink);
+    font-weight:600;
+    text-align:center;
+  }
   .sched-legend{
     margin-top:16px;
     display:flex;
@@ -1091,64 +1097,60 @@
           <tbody>
             <tr>
               <td class="day-cell">Mon</td>
-              <td>NLP (VII IT D2)</td>
-              <td>OOAD (III IT D2) · L-01 / E-203</td>
+              <td class="dash">—</td>
+              <td>NLP (VII IT D2) · L-01</td>
               <td class="recess">—</td>
-              <td class="empty">Free</td>
-              <td class="empty">Free</td>
+              <td>OOAD (III IT D2) · E-203</td>
+              <td class="dash">—</td>
               <td class="recess">—</td>
-              <td class="empty">Free</td>
-              <td class="empty">Free</td>
+              <td class="dash">—</td>
+              <td class="dash">—</td>
             </tr>
             <tr>
               <td class="day-cell">Tue</td>
-              <td>IOE–DSP (V) B (IT 6)</td>
-              <td>NLP (VII IT D2)</td>
+              <td class="lab" colspan="2">IOE–DSP (V) B (IT 6) · Lab</td>
               <td class="recess">—</td>
-              <td class="empty">Free</td>
-              <td>FDS (V AIDS) B (IT 4) · L-02</td>
+              <td>NLP (VII IT D2) · L-02</td>
+              <td class="dash">—</td>
               <td class="recess">—</td>
-              <td class="empty">Free</td>
-              <td class="empty">Free</td>
+              <td class="lab" colspan="2">FDS (V AIDS) B (IT 4) · Lab</td>
             </tr>
             <tr>
               <td class="day-cell">Wed</td>
-              <td>PP (Div K) A (IT 4)</td>
-              <td class="empty">Free</td>
+              <td class="lab" colspan="2">PP (Div K) A (IT 4) · Lab</td>
               <td class="recess">—</td>
               <td>IOE (V–DSP) · G-202</td>
               <td>IOE (V–DSP) · G-202</td>
               <td class="recess">—</td>
-              <td class="empty">Free</td>
-              <td class="empty">Free</td>
+              <td class="dash">—</td>
+              <td class="dash">—</td>
             </tr>
             <tr>
               <td class="day-cell">Thu</td>
-              <td>IOE–DSP (V) A (IT 6)</td>
+              <td class="lab" colspan="2">IOE–DSP (V) A (IT 6) · Lab</td>
+              <td class="recess">—</td>
+              <td class="dash">—</td>
+              <td class="dash">—</td>
+              <td class="recess">—</td>
               <td>NLP (VII IT D2) · L-02</td>
-              <td class="recess">—</td>
-              <td class="empty">Free</td>
-              <td class="empty">Free</td>
-              <td class="recess">—</td>
-              <td class="empty">Free</td>
-              <td class="empty">Free</td>
+              <td class="dash">—</td>
             </tr>
             <tr>
               <td class="day-cell">Fri</td>
               <td>IOE (V–DSP) · G-202</td>
-              <td>WT (V IT D1) B (IT 3)</td>
+              <td class="dash">—</td>
               <td class="recess">—</td>
-              <td class="empty">Free</td>
-              <td class="empty">Free</td>
+              <td class="lab" colspan="2">WT (V IT D1) B (IT 3) · Lab</td>
               <td class="recess">—</td>
-              <td class="empty">Free</td>
-              <td class="empty">Free</td>
+              <td class="dash">—</td>
+              <td class="dash">—</td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <div class="sched-legend">
+        <span>🟢 <b>Shaded</b> = lab / practical (2-hr block)</span>
         <span><b>NLP</b> Natural Language Processing · BTIT14706</span>
         <span><b>OOAD</b> Object-Oriented Analysis and Design · BTIT23303</span>
         <span><b>DSP</b> Data Science using Python · BTIT15501</span>
