@@ -410,6 +410,83 @@
   }
   .tag-pill:hover{transform:translateY(-3px) scale(1.05);}
 
+  /* ---------- SCHEDULE ---------- */
+  .schedule-invite{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:26px;
+    padding:30px 30px 24px;
+    margin-top:44px;
+  }
+  .schedule-invite h3{
+    color:var(--cream);
+    font-size:1.3rem;
+    font-weight:600;
+  }
+  .schedule-invite .sched-sub{
+    color:#C9BAE0;
+    font-size:0.92rem;
+    margin-top:8px;
+    max-width:560px;
+  }
+  .sched-table-wrap{
+    overflow-x:auto;
+    margin-top:22px;
+    border-radius:16px;
+    background:var(--paper);
+  }
+  table.sched{
+    width:100%;
+    border-collapse:collapse;
+    min-width:640px;
+    font-size:0.82rem;
+  }
+  table.sched th, table.sched td{
+    padding:10px 12px;
+    text-align:left;
+    border-bottom:1px solid rgba(46,26,71,0.08);
+    color:var(--ink);
+  }
+  table.sched thead th{
+    font-family:'Space Mono';
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    background:var(--lilac);
+  }
+  table.sched td.day-cell{
+    font-family:'Fredoka';
+    font-weight:600;
+    color:var(--coral-deep);
+    white-space:nowrap;
+  }
+  table.sched td.recess{
+    background:var(--cream);
+    font-family:'Space Mono';
+    font-size:0.68rem;
+    text-align:center;
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  table.sched td.empty{color:#C9BAE0; font-style:italic;}
+  .sched-legend{
+    margin-top:16px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 18px;
+    font-family:'Space Mono';
+    font-size:0.72rem;
+    color:#C9BAE0;
+  }
+  .sched-legend b{color:var(--sun);}
+  .sched-meta{
+    margin-top:14px;
+    font-family:'Space Mono';
+    font-size:0.72rem;
+    color:#8A76AA;
+  }
+
   /* ---------- CONNECT / FOOTER ---------- */
   footer{
     background:var(--ink); color:var(--cream); padding:80px 0 40px; border-radius:40px 40px 0 0; margin-top:60px;
@@ -674,6 +751,14 @@
         <h3>Natural Language Processing</h3>
         <p>From tokenising to transformers — the slides, notes, and reading list I actually use in class.</p>
         <a class="open" href="https://bhumikaa7981.github.io/Natural-Language-Processing-BTIT14706/" target="_blank" rel="noopener">Open notes →</a>
+      </div>
+
+      <div class="course-card">
+        <div class="blob" style="background:var(--sun)"></div>
+        <span class="tag">BTIT23303</span>
+        <h3>Object-Oriented Analysis and Design</h3>
+        <p>Objects, classes, and the UML diagrams that make them click — design notes and walkthroughs from the course.</p>
+        <a class="open" href="https://bhumikaa7981.github.io/BTIT23303-OOAD/" target="_blank" rel="noopener">Open notes →</a>
       </div>
 
       <div class="course-card">
@@ -982,6 +1067,97 @@
       <a class="connect-pill" style="background:var(--mint); color:var(--ink);" href="https://medium.com/@thealmostokay" target="_blank" rel="noopener">📝 Medium</a>
       <a class="connect-pill" style="background:var(--sky); color:var(--ink);" href="https://www.linkedin.com/in/bhumikaanddreams/" target="_blank" rel="noopener">💼 LinkedIn</a>
       <a class="connect-pill" style="background:var(--sun); color:var(--ink);" href="mailto:bhumika.shah@scet.ac.in">✉️ Email</a>
+    </div>
+
+    <div class="schedule-invite">
+      <h3>Want to discuss a project · idea · research · book · drama — anything?</h3>
+      <p class="sched-sub">Here's my schedule — swing by the free slots, or catch me between periods on campus.</p>
+
+      <div class="sched-table-wrap">
+        <table class="sched">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>09:00–10:00</th>
+              <th>10:00–11:00</th>
+              <th>Recess</th>
+              <th>11:15–12:15</th>
+              <th>12:15–01:15</th>
+              <th>Recess</th>
+              <th>02:00–03:00</th>
+              <th>03:00–04:00</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="day-cell">Mon</td>
+              <td>NLP (VII IT D2)</td>
+              <td>OOAD (III IT D2) · L-01 / E-203</td>
+              <td class="recess">—</td>
+              <td class="empty">Free</td>
+              <td class="empty">Free</td>
+              <td class="recess">—</td>
+              <td class="empty">Free</td>
+              <td class="empty">Free</td>
+            </tr>
+            <tr>
+              <td class="day-cell">Tue</td>
+              <td>IOE–DSP (V) B (IT 6)</td>
+              <td>NLP (VII IT D2)</td>
+              <td class="recess">—</td>
+              <td class="empty">Free</td>
+              <td>FDS (V AIDS) B (IT 4) · L-02</td>
+              <td class="recess">—</td>
+              <td class="empty">Free</td>
+              <td class="empty">Free</td>
+            </tr>
+            <tr>
+              <td class="day-cell">Wed</td>
+              <td>PP (Div K) A (IT 4)</td>
+              <td class="empty">Free</td>
+              <td class="recess">—</td>
+              <td>IOE (V–DSP) · G-202</td>
+              <td>IOE (V–DSP) · G-202</td>
+              <td class="recess">—</td>
+              <td class="empty">Free</td>
+              <td class="empty">Free</td>
+            </tr>
+            <tr>
+              <td class="day-cell">Thu</td>
+              <td>IOE–DSP (V) A (IT 6)</td>
+              <td>NLP (VII IT D2) · L-02</td>
+              <td class="recess">—</td>
+              <td class="empty">Free</td>
+              <td class="empty">Free</td>
+              <td class="recess">—</td>
+              <td class="empty">Free</td>
+              <td class="empty">Free</td>
+            </tr>
+            <tr>
+              <td class="day-cell">Fri</td>
+              <td>IOE (V–DSP) · G-202</td>
+              <td>WT (V IT D1) B (IT 3)</td>
+              <td class="recess">—</td>
+              <td class="empty">Free</td>
+              <td class="empty">Free</td>
+              <td class="recess">—</td>
+              <td class="empty">Free</td>
+              <td class="empty">Free</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="sched-legend">
+        <span><b>NLP</b> Natural Language Processing · BTIT14706</span>
+        <span><b>OOAD</b> Object-Oriented Analysis and Design · BTIT23303</span>
+        <span><b>DSP</b> Data Science using Python · BTIT15501</span>
+        <span><b>FDS</b> Fundamentals of Data Science · BTAI13502</span>
+        <span><b>PP</b> Python Programming · BTCO22101</span>
+        <span><b>WT</b> Web Technologies · BTCO13502</span>
+      </div>
+
+      <div class="sched-meta">Effective from 10/08/2026 (Version 2) · Odd Semester, 2026–27 · SCET, Sarvajanik University · Lectures 7 · Practicals 10 · Total 17</div>
     </div>
 
     <div class="foot-bottom" style="margin-top:50px;">Bhumika Keyur Shah · Surat, Gujarat · Built with equal parts chalk dust and curiosity.</div>
